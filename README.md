@@ -25,7 +25,7 @@ $ npm install use-store
 ## Example
 
 ```javascript
-// useState() example
+// Example with useState()
 
 import React, {useState} from 'react';
 
@@ -49,7 +49,7 @@ function Counter() {
 ```
 
 ```javascript
-// useStore() example
+// Example with useStore()
 
 import React from 'react';
 import useStore from 'use-store';
