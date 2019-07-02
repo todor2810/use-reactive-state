@@ -1,5 +1,21 @@
 `useStore()` - a reactive alternative to React's `useState()`
 
+---
+
+## Type definition of `useStore()`
+
+```typescript
+interface InitialStore {
+  [key: string]: any;
+}
+
+interface Store {
+  [key: string]: any;
+}
+
+declare function useStore(initialStore: InitialStore): InitialStore | Store;
+```
+
 ## Installation
 
 ```
@@ -9,7 +25,7 @@ $ npm install use-store
 ## Example
 
 ```javascript
-// with useState()
+// useState() example
 
 import React, {useState} from 'react';
 
@@ -33,7 +49,7 @@ function Counter() {
 ```
 
 ```javascript
-// with useStore()
+// useStore() example
 
 import React from 'react';
 import useStore from 'use-store';
@@ -52,19 +68,7 @@ function Counter() {
 }
 ```
 
-## Limitations of `useStore()`
-
-- `store` has to be an object:
-
-```javascript
-// This won't work
-let count = useStore(0);
-```
-
-```javascript
-// This will work
-let store = useStore({count: 0});
-```
+## Limitation of `useStore()`
 
 - `store` cannot be destructured:
 
