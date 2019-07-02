@@ -2,20 +2,6 @@
 
 ---
 
-## Type definition of `useStore()`
-
-```typescript
-interface InitialStore {
-  [key: string]: any;
-}
-
-interface Store {
-  [key: string]: any;
-}
-
-declare function useStore(initialStore: InitialStore): InitialStore | Store;
-```
-
 ## Installation
 
 ```
@@ -66,6 +52,20 @@ function Counter() {
     </div>
   );
 }
+```
+
+## Type definition of `useStore()`
+
+```typescript
+interface InitialStore {
+  [key: string]: any;
+}
+
+interface Store {
+  [key: string]: any;
+}
+
+declare function useStore(initialStore: InitialStore): InitialStore | Store;
 ```
 
 ## Limitation of `useStore()`
