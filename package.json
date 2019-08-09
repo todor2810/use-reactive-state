@@ -1,6 +1,6 @@
 {
   "name": "use-reactive-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "useReactiveState() - a reactive alternative to React's useState()",
   "main": "index.js",
   "dependencies": {

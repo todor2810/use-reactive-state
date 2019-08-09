@@ -12,6 +12,7 @@ $ npm install use-reactive-state
 
 ```javascript
 // 'useReactiveState()' example
+// Interactive demo: https://codesandbox.io/s/busy-khorana-euf58
 
 import React from 'react';
 import useReactiveState from 'use-reactive-state';
@@ -32,6 +33,7 @@ function Counter() {
 
 ```javascript
 // 'useState()' example
+// Interactive demo: https://codesandbox.io/s/gifted-glade-hp0pi
 
 import React, {useState} from 'react';
 
