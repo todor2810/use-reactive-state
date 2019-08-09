@@ -2,12 +2,12 @@ import {useState} from 'react';
 
 let cache = Symbol('cache');
 
-function useStore(initialStore) {
-  let [store, setStore] = useState(initialStore);
-  let storeCopy = {...store};
+function useReactiveState(initialState) {
+  let [state, setState] = useState(initialState);
+  let stateCopy = {...state};
 
-  return new Proxy(storeCopy, {
-    // Recursively proxify 'storeCopy'
+  return new Proxy(stateCopy, {
+    // Recursively proxify 'stateCopy'
     get(target, key) {
       if (
         // if the property is any kind of object (object, array, function)
@@ -32,7 +32,7 @@ function useStore(initialStore) {
       if (target[cache] && target[cache][key]) {
         delete target[cache][key];
       }
-      setStore(storeCopy); // call 'setStore' with the updated 'storeCopy'
+      setState(stateCopy); // call 'setState' with the updated 'stateCopy'
 
       return status;
     },
@@ -42,7 +42,7 @@ function useStore(initialStore) {
       if (target[cache] && target[cache][key]) {
         delete target[cache][key];
       }
-      setStore(storeCopy); // call 'setStore' with the updated 'storeCopy'
+      setState(stateCopy); // call 'setState' with the updated 'stateCopy'
 
       return status;
     },
@@ -52,11 +52,11 @@ function useStore(initialStore) {
       if (target[cache] && target[cache][key]) {
         delete target[cache][key];
       }
-      setStore(storeCopy); // call 'setStore' with the updated 'storeCopy'
+      setState(stateCopy); // call 'setState' with the updated 'stateCopy'
 
       return status;
     }
   });
 }
 
-export default useStore;
+export default useReactiveState;

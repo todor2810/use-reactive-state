@@ -1,31 +1,50 @@
-`useStore()` - a reactive alternative to React's `useState()`
+`useReactiveState()` - a reactive alternative to React's `useState()`
 
 ---
 
 ## Installation
 
 ```
-$ npm install use-store
+$ npm install use-reactive-state
 ```
 
 ## Example
 
 ```javascript
+// 'useReactiveState()' example
+
+import React from 'react';
+import useReactiveState from 'use-reactive-state';
+
+function Counter() {
+  let state = useReactiveState({count: 0});
+
+  return (
+    <div>
+      <p>You clicked {state.count} times</p>
+      <button onClick={function () { state.count += 1; }}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+```javascript
 // 'useState()' example
-// Interactive demo: https://codesandbox.io/s/cool-hill-s6kvo
 
 import React, {useState} from 'react';
 
 function Counter() {
-  let [store, setStore] = useState({count: 0});
+  let [state, setState] = useState({count: 0});
 
   return (
     <div>
-      <p>You clicked {store.count}</p>
+      <p>You clicked {state.count}</p>
       <button onClick={function () {
-        setStore({
-          ...store,
-          count: store.count + 1
+        setState({
+          ...state,
+          count: state.count + 1
         });
       }}>
         Click me
@@ -35,51 +54,30 @@ function Counter() {
 }
 ```
 
-```javascript
-// 'useStore()' example
-// Interactive demo: https://codesandbox.io/s/reverent-bogdan-iz1wf
-
-import React from 'react';
-import useStore from 'use-store';
-
-function Counter() {
-  let store = useStore({count: 0});
-
-  return (
-    <div>
-      <p>You clicked {store.count} times</p>
-      <button onClick={function () { store.count += 1; }}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
-
-## Type definition of `useStore()`
+## Type definition of `useReactiveState()`
 
 ```typescript
-interface InitialStore {
+interface InitialState {
   [key: string]: any;
 }
 
-interface Store {
+interface State {
   [key: string]: any;
 }
 
-declare function useStore(initialStore: InitialStore): InitialStore | Store;
+declare function useReactiveState(initialState: InitialState): InitialState | State;
 ```
 
-## Limitation of `useStore()`
+## Limitation of `useReactiveState()`
 
-- `store` cannot be destructured:
+- `state` cannot be destructured:
 
 ```javascript
 // This won't work
-let {count} = useStore({count: 0});
+let {count} = useReactiveState({count: 0});
 ```
 
 ```javascript
 // This will work
-let store = useStore({count: 0});
+let state = useReactiveState({count: 0});
 ```

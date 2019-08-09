@@ -1,7 +1,7 @@
 {
-  "name": "use-store",
+  "name": "use-reactive-state",
   "version": "1.0.0",
-  "description": "useStore() - a reactive alternative to React's useState()",
+  "description": "useReactiveState() - a reactive alternative to React's useState()",
   "main": "index.js",
   "dependencies": {
     "react": "^16.8.6"
@@ -12,20 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pretodor/use-store.git"
+    "url": "git+https://github.com/tedstoychev/use-reactive-state.git"
   },
   "keywords": [
     "React",
     "hook",
     "state",
-    "store",
     "useState",
-    "useStore"
+    "useReactiveState"
   ],
-  "author": "Todor Stoychev",
+  "author": "Ted Stoychev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pretodor/use-store/issues"
+    "url": "https://github.com/tedstoychev/use-reactive-state/issues"
   },
-  "homepage": "https://github.com/pretodor/use-store#readme"
+  "homepage": "https://github.com/tedstoychev/use-reactive-state#readme"
 }
