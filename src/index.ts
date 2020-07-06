@@ -1,14 +1,21 @@
 import {useState} from 'react';
 
-let cache = Symbol('cache');
+// The type assertion is a workaround
+// because TypeScript doesn't support
+// symbols as object keys yet
+const cache = Symbol('cache') as any;
 
-function useReactiveState(initialState) {
-  let [state, setState] = useState(initialState);
-  let stateCopy = {...state};
+interface InitialState {
+  [key: string]: any;
+}
+
+function useReactiveState(initialState: InitialState) {
+  const [state, setState] = useState(initialState);
+  const stateCopy = {...state};
 
   return new Proxy(stateCopy, {
     // Recursively proxify 'stateCopy'
-    get(target, key) {
+    get(target, key: string | number) {
       if (
         // if the property is any kind of object (object, array, function)
         typeof target[key] === 'object'
