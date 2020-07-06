@@ -2,13 +2,24 @@
   "name": "use-reactive-state",
   "version": "1.0.1",
   "description": "useReactiveState() - a reactive alternative to React's useState()",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "dependencies": {
     "react": "^16.8.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/react": "^16.9.41",
+    "jest": "^26.0.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.json",
+    "build:release": "tsc -p tsconfig.release.json",
+    "test": "jest",
+    "prepublishOnly": "rimraf ./lib && npm run build:release"
   },
   "repository": {
     "type": "git",

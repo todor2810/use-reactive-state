@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
+    "outDir": "./built",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "**/__mocks__",
+    "**/__snapshots__",
+    "**/__tests__"
+  ]
+}
