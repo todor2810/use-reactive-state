@@ -34,7 +34,7 @@ function useReactiveState(initialState: InitialState) {
       }
     },
     set(target, key, value) {
-      let status = Reflect.set(target, key, value); // default behavior
+      const status = Reflect.set(target, key, value); // default behavior
 
       if (target[cache] && target[cache][key]) {
         delete target[cache][key];
@@ -44,7 +44,7 @@ function useReactiveState(initialState: InitialState) {
       return status;
     },
     defineProperty(target, key, descriptor) {
-      let status = Reflect.defineProperty(target, key, descriptor); // default behavior
+      const status = Reflect.defineProperty(target, key, descriptor); // default behavior
 
       if (target[cache] && target[cache][key]) {
         delete target[cache][key];
@@ -54,7 +54,7 @@ function useReactiveState(initialState: InitialState) {
       return status;
     },
     deleteProperty(target, key) {
-      let status = Reflect.deleteProperty(target, key); // default behavior
+      const status = Reflect.deleteProperty(target, key); // default behavior
 
       if (target[cache] && target[cache][key]) {
         delete target[cache][key];
