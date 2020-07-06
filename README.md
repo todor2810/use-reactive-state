@@ -14,16 +14,13 @@ $ npm install use-reactive-state
 // 'useReactiveState()' example
 // Interactive demo: https://codesandbox.io/s/busy-khorana-euf58
 
-import React from 'react';
-import useReactiveState from 'use-reactive-state';
-
 function Counter() {
-  let state = useReactiveState({count: 0});
+  const state = useReactiveState({count: 0});
 
   return (
     <div>
       <p>You clicked {state.count} times</p>
-      <button onClick={function () { state.count += 1; }}>
+      <button onClick={() => { state.count += 1; }}>
         Click me
       </button>
     </div>
@@ -35,15 +32,13 @@ function Counter() {
 // 'useState()' example
 // Interactive demo: https://codesandbox.io/s/gifted-glade-hp0pi
 
-import React, {useState} from 'react';
-
 function Counter() {
-  let [state, setState] = useState({count: 0});
+  const [state, setState] = useState({count: 0});
 
   return (
     <div>
       <p>You clicked {state.count}</p>
-      <button onClick={function () {
+      <button onClick={() => {
         setState({
           ...state,
           count: state.count + 1
@@ -54,20 +49,6 @@ function Counter() {
     </div>
   );
 }
-```
-
-## Type definition of `useReactiveState()`
-
-```typescript
-interface InitialState {
-  [key: string]: any;
-}
-
-interface State {
-  [key: string]: any;
-}
-
-declare function useReactiveState(initialState: InitialState): InitialState | State;
 ```
 
 ## Limitation of `useReactiveState()`
