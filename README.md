@@ -57,10 +57,10 @@ function Counter() {
 
 ```javascript
 // This won't work
-let {count} = useReactiveState({count: 0});
+const {count} = useReactiveState({count: 0});
 ```
 
 ```javascript
 // This will work
-let state = useReactiveState({count: 0});
+const state = useReactiveState({count: 0});
 ```
