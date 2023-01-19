@@ -10,28 +10,15 @@ $ npm install use-reactive-state
 
 ## Example
 
-```javascript
-// 'useReactiveState()' example
-// Interactive demo: https://codesandbox.io/s/busy-khorana-euf58
-
-function Counter() {
-  const state = useReactiveState({count: 0});
-
-  return (
-    <div>
-      <p>You clicked {state.count} times</p>
-      <button onClick={() => { state.count += 1; }}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
+<table>
+<tr>
+<th>useState()</th>
+<th>useReactiveState()</th>
+</tr>
+<tr>
+<td valign="top">
 
 ```javascript
-// 'useState()' example
-// Interactive demo: https://codesandbox.io/s/gifted-glade-hp0pi
-
 function Counter() {
   const [state, setState] = useState({count: 0});
 
@@ -50,6 +37,28 @@ function Counter() {
   );
 }
 ```
+
+</td>
+<td valign="top">
+
+```javascript
+function Counter() {
+  const state = useReactiveState({count: 0});
+
+  return (
+    <div>
+      <p>You clicked {state.count} times</p>
+      <button onClick={() => { state.count += 1; }}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+</td>
+</tr>
+</table>
 
 ## Limitation of `useReactiveState()`
 
